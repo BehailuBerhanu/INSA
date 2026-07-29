@@ -3,14 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>merkato</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta name="description" content="Merkato Tech - Your premier online shop for laptops, smartphones, and audio gear in Ethiopia.">
+    <meta name="keywords" content="Laptops, MacBooks, HP, iPhones, Smartphones, Gaming Headsets, Wireless Earbuds, Tech Shop Addis Ababa">
+    <meta name="author" content="Merkato Tech Electronics">
+    <title>Merkato Tech | Laptops, Phones & Accessories</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Welcome to merkato!</p>
-    <h1>Merkato</h1>
-    
 
+    <!-- Top Announcement Bar -->
+    <div id="announcement-bar">
+        <p>⚡ Mega Tech Sale! Free delivery across Addis Ababa on orders over 15,000 ETB. <mark>Code: TECH10</mark></p>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo-container">
+            <h1><a href="#">መርካቶ ቴክ <span>Merkato Tech</span></a></h1>
+        </div>
+
+        <!-- Search Bar Form -->
+        <form id="search-form" class="search-bar" role="search">
+            <label for="search-input" class="sr-only">Search tech products</label>
+            <input type="search" id="search-input" name="q" placeholder="Search MacBook, HP, iPhone, Earbuds..." list="search-suggestions">
+            <datalist id="search-suggestions">
+                <option value="HP Laptop 15">
+                <option value="Apple MacBook Air">
+                <option value="iPhone 16 Pro Max">
+                <option value="Android Smartphone">
+                <option value="Gaming Headset">
+                <option value="Wireless Earbuds">
+            </datalist>
+            <button type="submit" aria-label="Submit Search">🔍 Search</button>
+        </form>
+
+        <!-- User Controls / Cart -->
+        <div class="header-actions">
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+            <button id="cart-btn" aria-label="View Shopping Cart">
+                🛒 Cart (<output id="cart-count">0</output>)
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="category-nav" aria-label="Product Categories">
+        <ul>
+            <li><button class="nav-btn active" data-category="all">All Electronics</button></li>
+            <li><button class="nav-btn" data-category="laptops">Laptops & PCs</button></li>
+            <li><button class="nav-btn" data-category="smartphones">Smartphones</button></li>
+            <li><button class="nav-btn" data-category="audio">Audio & Headphones</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-banner">
+        <picture>
+            <source media="(min-width: 800px)" srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Latest Electronics and Tech Accessories">
+        </picture>
+        <div class="hero-text">
+            <h2>Upgrade Your Tech Today</h2>
+            <p>Get authentic laptops, flagship smartphones, and premium audio equipment with warranty.</p>
+            <a href="#product-grid-section" class="cta-button">Shop Electronics</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="content-container">
+
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <h3>Filter Products</h3>
+            
+            <form id="filter-form">
+                <fieldset>
+                    <legend>Price Range (ETB)</legend>
+                    <label for="price-range">Max Price: <span id="price-val">150000</span> ETB</label>
+                    <input type="range" id="price-range" min="1000" max="150000" step="1000" value="150000">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Availability</legend>
+                    <label><input type="checkbox" id="in-stock-only"> In Stock Only</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Customer Rating</legend>
+                    <label><input type="radio" name="rating-filter" value="0" checked> All Ratings</label>
+                    <label><input type="radio" name="rating-filter" value="4"> 4 Stars & Above</label>
+                </fieldset>
+                
+                <button type="reset" id="reset-filters">Reset Filters</button>
+            </form>
+
+            <hr>
+
+            <details>
+                <summary><strong>Warranty & Support</strong></summary>
+                <p>All tech products come with a 1-year manufacturer warranty and free technical support at our Addis Ababa service center.</p>
+            </details>
+        </aside>
+
+        <!-- Product Display Section -->
+        <section id="product-grid-section" class="products-section">
+            <header class="section-header">
+                <h2 id="current-category-title">All Electronics</h2>
+                <div class="sort-control">
+                    <label for="sort-select">Sort By:</label>
+                    <select id="sort-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Dynamic Product Grid populated by JS -->
+            <div id="product-grid" class="product-grid" aria-live="polite">
+                <!-- Products dynamically inserted here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shopping Cart Modal (Dialog Tag) -->
+    <dialog id="cart-modal">
+        <header class="modal-header">
+            <h3>Your Tech Basket</h3>
+            <button id="close-cart-btn" aria-label="Close cart">&times;</button>
+        </header>
+
+        <div id="cart-items-container">
+            <!-- Cart items inserted here via JS -->
+        </div>
+
+        <section class="cart-summary">
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="row">Subtotal:</th>
+                        <td><span id="cart-subtotal">0.00</span> ETB</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Top-up for free delivery:</th>
+                        <td><span id="cart-topup">0.00</span> ETB</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Est. Delivery Fee:</th>
+                        <td><span id="cart-shipping">0.00</span> ETB</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><strong>Total:</strong></th>
+                        <td><strong><span id="cart-total">0.00</span> ETB</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p id="cart-topup-note" class="cart-note">Your cart is empty.</p>
+            
+            <form id="checkout-form">
+                <label for="delivery-city">Delivery Location:</label>
+                <select id="delivery-city" required>
+                    <option value="addis">Addis Ababa (Same day Express)</option>
+                    <option value="regional">Regional Ethiopia (2-4 days)</option>
+                    <option value="intl">International Courier</option>
+                </select>
+                <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+            </form>
+        </section>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <section class="footer-info">
+                <h4>Merkato Tech Ethiopia</h4>
+                <address>
+                    Bole Road / Merkato Electronics Zone<br>
+                    Addis Ababa, Ethiopia<br>
+                    Email: <a href="mailto:support@merkatotech.et">support@merkatotech.et</a><br>
+                    Phone: <a href="tel:+251911000000">+251 911 000 000</a>
+                </address>
+            </section>
+
+            <section class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Laptops & Notebooks</a></li>
+                    <li><a href="#">Smartphones & Tablets</a></li>
+                    <li><a href="#">Over-Ear Headphones</a></li>
+                    <li><a href="#">Wireless Earbuds</a></li>
+                </ul>
+            </section>
+
+            <section class="newsletter">
+                <h4>Stay Updated on Tech Deals</h4>
+                <form id="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Email address</label>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <time datetime="2026">2026</time> Merkato Tech. Built with pure HTML, CSS, and Vanilla JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
