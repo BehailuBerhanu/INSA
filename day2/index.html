@@ -13,13 +13,13 @@
 
     <!-- Top Announcement Bar -->
     <div id="announcement-bar">
-        <p>⚡ Mega Tech Sale! Free delivery across Addis Ababa on orders over 15,000 ETB. <mark>Code: TECH10</mark></p>
+        <marquee><p> Mega Tech Sale! Free delivery across Addis Ababa on orders over 15,000 ETB. <mark>Code: TECH10</mark></p></marquee>
     </div>
 
     <!-- Main Header -->
     <header class="main-header">
         <div class="logo-container">
-            <h1><a href="#">መርካቶ ቴክ <span>Merkato Tech</span></a></h1>
+            <h1><a href="#">merkato tech <span>Merkato Tech</span></a></h1>
         </div>
 
         <!-- Search Bar Form -->
@@ -58,14 +58,11 @@
 
     <!-- Hero Section -->
     <section class="hero-banner">
-        <picture>
-            <source media="(min-width: 800px)" srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Latest Electronics and Tech Accessories">
-        </picture>
         <div class="hero-text">
             <h2>Upgrade Your Tech Today</h2>
             <p>Get authentic laptops, flagship smartphones, and premium audio equipment with warranty.</p>
             <a href="#product-grid-section" class="cta-button">Shop Electronics</a>
+            <img class="hero-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 320'%3E%3Crect width='500' height='320' rx='24' fill='%23f3f4f6'/%3E%3Crect x='90' y='70' width='220' height='150' rx='14' fill='%23dc2626'/%3E%3Crect x='118' y='92' width='164' height='106' rx='8' fill='%23ffffff'/%3E%3Crect x='308' y='100' width='98' height='160' rx='16' fill='%231f2937'/%3E%3Crect x='324' y='118' width='66' height='110' rx='8' fill='%23ffffff'/%3E%3Ccircle cx='360' cy='176' r='10' fill='%23dc2626'/%3E%3Crect x='140' y='220' width='120' height='16' rx='8' fill='%23dc2626'/%3E%3Cpath d='M125 250h225' stroke='%23dc2626' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E" alt="Tech products illustration">
         </div>
     </section>
 
@@ -105,7 +102,7 @@
             </details>
         </aside>
 
-        <!-- Product Display Section -->
+        <!-- Product Display Section products desplayed here -->
         <section id="product-grid-section" class="products-section">
             <header class="section-header">
                 <h2 id="current-category-title">All Electronics</h2>
@@ -123,6 +120,12 @@
             <!-- Dynamic Product Grid populated by JS -->
             <div id="product-grid" class="product-grid" aria-live="polite">
                 <!-- Products dynamically inserted here -->
+            </div>
+        </section>
+        <section class="about-section">
+            <h1>About Merkato Tech</h1>
+            <div class="about-box">
+                <p>This is Merkato Tech's official website, where you can find laptops, MacBooks, Apple products, Android phones, headsets, and all the electronic equipment you need. <mark>Come and grab your product today.</mark></p>
             </div>
         </section>
 
@@ -172,6 +175,7 @@
                 <button type="submit" class="checkout-btn">Proceed to Checkout</button>
             </form>
         </section>
+        
     </dialog>
 
     <!-- Footer -->
@@ -197,8 +201,18 @@
                 </ul>
             </section>
 
+            <section class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </section>
+
             <section class="newsletter">
-                <h4>Stay Updated on Tech Deals</h4>
+                <h4>Stay Updated on Tech Deals</h4> 
                 <form id="newsletter-form">
                     <label for="newsletter-email" class="sr-only">Email address</label>
                     <input type="email" id="newsletter-email" placeholder="Enter your email" required>
@@ -206,6 +220,8 @@
                 </form>
             </section>
         </div>
+
+        <hr>
 
         <div class="footer-bottom">
             <p>&copy; <time datetime="2026">2026</time> Merkato Tech. Built with pure HTML, CSS, and Vanilla JavaScript.</p>
