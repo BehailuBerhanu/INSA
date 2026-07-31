@@ -244,19 +244,28 @@ label {
     background: #f3f4f6;
 }
 
-.product-card h3 {
-    margin-top: 0;
-    margin-bottom: 0.4rem;
+.product-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
 }
 
-.product-card p {
-    margin: 0 0 0.5rem;
-    color: var(--muted);
+.product-actions button {
+    flex: 1;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 0.7rem;
+    cursor: pointer;
+    color: var(--white);
 }
 
-.price {
-    font-weight: 700;
-    color: var(--accent);
+.add-to-cart-btn {
+    background: var(--primary);
+}
+
+.buy-now-btn {
+    background: var(--accent);
 }
 
 .about-section {
